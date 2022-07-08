@@ -1,0 +1,23 @@
+# importing libraries
+
+import numpy as np
+import pandas as pd
+import math
+
+df  = pd.read_csv('.\ColList_shuffled - Copy.csv')
+df = df.sample(frac=1)  #shuffles the order of rows
+a, b, c, d = np.split(df, [int(.05*len(df)), int(.10*len(df)), int(.30*len(df))])
+
+print(f"\n {a}")
+
+print(f'\n {b}')
+
+print(f'\n {c}')
+
+print(f'\n {d}')
+
+a.to_csv(".\output5.csv", index=False)
+b.to_csv(".\output10.csv", index=False)
+c.to_csv(".\output30.csv", index=False)
+d.to_csv(".\output55.csv", index=False) 
+
